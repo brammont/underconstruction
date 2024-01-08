@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import UnderConstruction from 'react-under-construction';
+import 'react-under-construction/build/css/index.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => (
+  <div style={{ height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <UnderConstruction
+      background={{
+        image: 'https://static.pexels.com/photos/259698/pexels-photo-259698.jpeg',
+        textColor: '#fff',
+        overlay: {
+          color: '#000',
+          opacity: '.5',
+        },
+      }}
+      logo={{
+        src: 'https://image.ibb.co/b7guP5/Rubbby_without_text.png',
+        alt: 'alt text',
+      }}
+      title={{
+        text: 'Rubbby',
+      }}
+      description={{
+        text: 'Our website is under construction. We\'ll be here soon, subscribe to be notified',
+        style: {
+          maxWidth: '440px',
+        },
+      }}
+      subscribe={{
+        placeholder: 'Enter your email',
+        buttonText: 'Subscribe',
+        onSubmit: (value) => {
+          console.log('user typed email :', value);
+        },
+      }}
+      links={[
+        {
+          url: 'https://www.facebook.com/',
+          image: 'https://image.flaticon.com/icons/svg/220/220200.svg',
+        },
+        {
+          url: 'https://www.twitter.com/',
+          image: 'https://image.flaticon.com/icons/svg/145/145812.svg',
+        },
+        {
+          url: 'https://www.linkedin.com/',
+          image: 'https://image.flaticon.com/icons/svg/145/145807.svg',
+        },
+        {
+          url: 'mailto:someone@example.com',
+          image: 'https://image.flaticon.com/icons/svg/145/145817.svg',
+        },
+      ]}
+      
+      // Adicional: Se puede ajustar el espaciado interno del componente:
+      // containerStyle={{ padding: '20px' }} 
+    />
+  </div>
+);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default App;
